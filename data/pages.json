@@ -1,0 +1,26 @@
+[
+  {
+    "page_title": "About CPAs",
+    "slug": "about-cpas",
+    "hero": "./images/certified-public-accountant.png",
+    "hero_alt": "Certified Public Accountant",
+    "sections": [
+      {
+        "title": "What Is A CPA?",
+        "html": "<p>A Certified Public Accountant, commonly referred to by individuals as ‘a tax guy’, is a trusted professional financial consultant that is required to adhere to high standards, continuous education, and a strict code of ethics. CPAs provide services to individuals, married couples, and businesses of all sizes.</p>"
+      },
+      {
+        "title": "How Can A Certified Public Accountant Help?",
+        "image": "./images/how-a-cpa-can-help.jpg",
+        "image_alt": "A man reviewing tax forms",
+        "html": "<p>CPAs help individuals and married couples file income tax returns, income and cash flow planning, charitable contribution strategies, trusts, estates, personal insurances, and retirement planning.</p><p>CPAs play many different roles for businesses depending on its size and needs. These services include but are not limited to:</p><ul><li>Auditing</li><li>Tax Planning</li><li>Tax Filings</li><li>Financial Statements Preparation</li><li>Bookkeeping</li><li>Payroll</li></ul>"
+      },
+      {
+        "title": "Is A CPA Better Than TurboTax?",
+        "image": "./images/turbo-tax.jpg",
+        "image_alt": "Tax forms with a phone viewing an email from TurboTax",
+        "html": "<p>TurboTax is software for preparing income tax returns. This software makes it possible for individuals with little to no accounting experience to file their own tax returns.</p><p>A CPA vs TurboTax is an improper comparison. The proper comparison is, is it better to file your taxes yourself, or to have a professional accountant with experience with tax law compliance prepare and file your tax returns for you? We have found that it is almost always better to have an experienced tax professional file on your behalf. TurboTax is great, in fact it is so great that many accountants use it to file tax returns, but they do so with the knowledge of the limitations and boundaries of the law, ensuring that you are taking advantage of every opportunity and maximizing your deductions.</p>"
+      }
+    ]
+  }
+]

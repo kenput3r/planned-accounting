@@ -1,42 +1,138 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import styled from "styled-components"
+import { SiGooglemaps } from "react-icons/si"
+import { FaFacebookF, FaYelp, FaPhone } from "react-icons/fa"
+import { FiMail } from "react-icons/fi"
+import logo from "../images/logo.png"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+const Component = styled.header`
+  .nav-container {
+    background-color: var(--black);
+  }
+  .contact-nav {
+    display: flex;
+    flex-direction: row;
+    max-width: 1170px;
+    margin: 0 auto;
+    a {
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      padding: 10px;
+      svg {
+        margin: 0 5px;
+      }
+    }
+  }
+  .social {
+    ul {
+      margin-top: 5px;
+    }
+  }
+  .traditional {
+    flex: auto;
+    ul {
+      text-align: right;
+    }
+  }
+  ul {
+    margin-bottom: 0;
+    @media (max-width: 500px) {
+      margin-left: 0;
+    }
+  }
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 0;
+  }
+  h1 {
+    text-align: center;
+    padding: 5px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .small-hide {
+    @media (max-width: 706px) {
+      display: none;
+    }
+  }
+`
+
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query SiteDataQuery {
+      allInfoJson {
+        edges {
+          node {
+            email
+            phone
+            phone_formatted
+            facebook_url
+            yelp_url
+            google_url
+          }
+        }
+      }
+    }
+  `)
+  const node = data.allInfoJson.edges[0].node
+  return (
+    <Component>
+      <div className="nav-container">
+        <div className="contact-nav">
+          <div className="social">
+            <ul>
+              <li>
+                <a href={node.facebook_url}>
+                  <FaFacebookF />
+                </a>
+              </li>
+              <li>
+                <a href={node.yelp_url}>
+                  <FaYelp />
+                </a>
+              </li>
+              <li>
+                <a href={node.google_url}>
+                  <SiGooglemaps />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="traditional">
+            <ul>
+              <li>
+                <a href="/">
+                  <FaPhone />
+                  <span className="small-hide">{node.phone_formatted}</span>
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${node.email}`}>
+                  <FiMail />
+                  <span className="small-hide">{node.email}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+        <Link to="/">
+          <img
+            src={logo}
+            width="320px"
+            alt="Johnson & Associates - Certified Public Accountant"
+          />
         </Link>
       </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+    </Component>
+  )
 }
 
 export default Header
