@@ -2,7 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import Scrollspy from "react-scrollspy"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const Page = styled.div`
   .image-container {
@@ -24,11 +26,20 @@ const Page = styled.div`
     }
     &.scroll-nav {
       flex: 2;
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
   }
   ul.sticky {
     position: sticky;
     top: 10px;
+    list-style-type: none;
+  }
+  .is-current {
+    a {
+      font-weight: bold;
+    }
   }
 `
 
@@ -38,6 +49,7 @@ const AboutCPA = ({ data }) => {
   const { node } = data.allPagesJson.edges[0]
   return (
     <Layout>
+      <SEO title="About CPAs" />
       <Page>
         <h1>{node.page_title}</h1>
         <div className="image-container">
@@ -61,13 +73,17 @@ const AboutCPA = ({ data }) => {
             ))}
           </div>
           <div className="col scroll-nav">
-            <ul className="sticky">
+            <Scrollspy
+              className="sticky"
+              items={["section-0", "section-1", "section-2", "section-3"]}
+              currentClassName="is-current"
+            >
               {node.sections.map((section, index) => (
                 <li key={`nav-item-${index}`}>
                   <a href={`#section-${index}`}>{section.title}</a>
                 </li>
               ))}
-            </ul>
+            </Scrollspy>
           </div>
         </div>
       </Page>

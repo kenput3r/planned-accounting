@@ -2,6 +2,7 @@
   --title-font: "Cinzel", serif;
   --body-font: "Montserrat", sans-serif;
   --black: #3a3a3a;
+  --purple: #551a8b;
 }
 
 html {
@@ -57,6 +58,7 @@ template {
   display: none;
 }
 a {
+  color: var(--purple);
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }

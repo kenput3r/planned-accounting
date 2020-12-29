@@ -7,6 +7,7 @@ import { FiMail } from "react-icons/fi"
 import logo from "../images/logo.png"
 
 const Component = styled.header`
+  margin-bottom: 1.45rem;
   .nav-container {
     background-color: var(--black);
   }
@@ -59,6 +60,30 @@ const Component = styled.header`
   .small-hide {
     @media (max-width: 706px) {
       display: none;
+    }
+  }
+  nav {
+    width: 960px;
+    max-width: 100%;
+    margin: 0 auto;
+    ul {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-left: 0;
+      padding: 0 5px 10px;
+    }
+    li {
+      padding: 10px 5px 0;
+    }
+    a {
+      color: var(--black);
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
     }
   }
 `
@@ -131,6 +156,22 @@ const Header = () => {
           />
         </Link>
       </h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about-cpa">What Is A CPA?</Link>
+          </li>
+          <li>
+            <Link to="/about-johnson-associates">About J&amp;A</Link>
+          </li>
+          <li>
+            <Link to="/">Contact</Link>
+          </li>
+        </ul>
+      </nav>
     </Component>
   )
 }
