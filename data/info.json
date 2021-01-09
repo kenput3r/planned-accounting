@@ -3,8 +3,11 @@
     "email": "info@plannedaccounting.com",
     "phone": "+1-213-487-2100",
     "phone_formatted": "(213) 487 - 2100",
-    "facebook_url": "",
-    "yelp_url": "",
-    "google_url": ""
+    "facebook_url": "https://www.facebook.com/Johnson-Associates-CPA-428540947298863",
+    "yelp_url": "https://yelp.com",
+    "google_url": "https://google.com",
+    "map_url": "https://goo.gl/maps/P2Mjq62ZkSw5Ut7n7",
+    "address": "3055 Wilshire Blvd - Los Angeles, CA 90010 - USA",
+    "fax": "(213) 738 - 9944"
   }
 ]

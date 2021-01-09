@@ -1,43 +1,44 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
 import "./layout.css"
 import "./fonts.css"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, templateName }) => {
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
+      <Header templateName={templateName} />
+      <main>{children}</main>
+      <footer
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          backgroundColor: "var(--blue)",
+          color: "#ffffff",
+          textAlign: "center",
         }}
       >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
+        <div className="wrapper">
+          Copyright © {new Date().getFullYear()} Johnson &amp; Associates, Built
+          by
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+          <a
+            href="https://github.com/kenput3r"
+            style={{ color: "#ffffff" }}
+            target="_blank"
+            rel="noreferrer"
+          >
+            @kenput3r
+          </a>{" "}
+          <br />
+          <a
+            href="https://goo.gl/maps/P2Mjq62ZkSw5Ut7n7"
+            style={{ color: "#ffffff" }}
+            target="_blank"
+            rel="noreferrer"
+          >
+            3055 Wilshire Blvd - Los Angeles, CA 90010 - USA
+          </a>
+        </div>
+      </footer>
     </>
   )
 }

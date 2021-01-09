@@ -7,6 +7,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Page = styled.div`
+  a {
+    color: var(--blue);
+  }
   .image-container {
     width: 100%;
     padding-bottom: 1.45rem;
@@ -51,39 +54,41 @@ const AboutCPA = ({ data }) => {
     <Layout>
       <SEO title="About CPAs" />
       <Page>
-        <h1>{node.page_title}</h1>
-        <div className="image-container">
-          <Img fluid={node.hero.childImageSharp.fluid} alt={node.hero_alt} />
-        </div>
-        <div className="row">
-          <div className="col content">
-            {node.sections.map((section, index) => (
-              <section id={`section-${index}`} key={`section-${index}`}>
-                <h2>{section.title}</h2>
-                {section.image && (
-                  <div className="image-container">
-                    <Img
-                      fluid={section.image.childImageSharp.fluid}
-                      alt={section.image_alt}
-                    />
-                  </div>
-                )}
-                <div dangerouslySetInnerHTML={createMarkup(section.html)} />
-              </section>
-            ))}
+        <div className="wrapper">
+          <h1>{node.page_title}</h1>
+          <div className="image-container">
+            <Img fluid={node.hero.childImageSharp.fluid} alt={node.hero_alt} />
           </div>
-          <div className="col scroll-nav">
-            <Scrollspy
-              className="sticky"
-              items={["section-0", "section-1", "section-2", "section-3"]}
-              currentClassName="is-current"
-            >
+          <div className="row">
+            <div className="col content">
               {node.sections.map((section, index) => (
-                <li key={`nav-item-${index}`}>
-                  <a href={`#section-${index}`}>{section.title}</a>
-                </li>
+                <section id={`section-${index}`} key={`section-${index}`}>
+                  <h2>{section.title}</h2>
+                  {section.image && (
+                    <div className="image-container">
+                      <Img
+                        fluid={section.image.childImageSharp.fluid}
+                        alt={section.image_alt}
+                      />
+                    </div>
+                  )}
+                  <div dangerouslySetInnerHTML={createMarkup(section.html)} />
+                </section>
               ))}
-            </Scrollspy>
+            </div>
+            <div className="col scroll-nav">
+              <Scrollspy
+                className="sticky"
+                items={["section-0", "section-1", "section-2", "section-3"]}
+                currentClassName="is-current"
+              >
+                {node.sections.map((section, index) => (
+                  <li key={`nav-item-${index}`}>
+                    <a href={`#section-${index}`}>{section.title}</a>
+                  </li>
+                ))}
+              </Scrollspy>
+            </div>
           </div>
         </div>
       </Page>

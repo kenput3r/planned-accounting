@@ -8,8 +8,10 @@ import logo from "../images/logo.png"
 
 const Component = styled.header`
   margin-bottom: 1.45rem;
+  z-index: 2;
+  position: relative;
   .nav-container {
-    background-color: var(--black);
+    background-color: var(--blue);
   }
   .contact-nav {
     display: flex;
@@ -80,15 +82,21 @@ const Component = styled.header`
       padding: 10px 5px 0;
     }
     a {
-      color: var(--black);
+      color: var(--blue);
       font-weight: bold;
       text-decoration: none;
       text-transform: uppercase;
     }
   }
+  @media (max-width: 900px) {
+    background-color: ${({ templateName }) =>
+      templateName === "index" ? "#9ab8d3" : "#ffffff"};
+    margin-bottom: 0;
+    padding-bottom: 1.45rem;
+  }
 `
 
-const Header = () => {
+const Header = ({ templateName }) => {
   const data = useStaticQuery(graphql`
     query SiteDataQuery {
       allInfoJson {
@@ -107,23 +115,23 @@ const Header = () => {
   `)
   const node = data.allInfoJson.edges[0].node
   return (
-    <Component>
+    <Component templateName={templateName}>
       <div className="nav-container">
         <div className="contact-nav">
           <div className="social">
             <ul>
               <li>
-                <a href={node.facebook_url}>
+                <a href={node.facebook_url} target="_blank" rel="noreferrer">
                   <FaFacebookF />
                 </a>
               </li>
               <li>
-                <a href={node.yelp_url}>
+                <a href={node.yelp_url} target="_blank" rel="noreferrer">
                   <FaYelp />
                 </a>
               </li>
               <li>
-                <a href={node.google_url}>
+                <a href={node.google_url} target="_blank" rel="noreferrer">
                   <SiGooglemaps />
                 </a>
               </li>
@@ -132,7 +140,7 @@ const Header = () => {
           <div className="traditional">
             <ul>
               <li>
-                <a href="/">
+                <a href={`tel:${node.phone}`}>
                   <FaPhone />
                   <span className="small-hide">{node.phone_formatted}</span>
                 </a>
@@ -165,10 +173,7 @@ const Header = () => {
             <Link to="/about-cpa">What Is A CPA?</Link>
           </li>
           <li>
-            <Link to="/about-johnson-associates">About J&amp;A</Link>
-          </li>
-          <li>
-            <Link to="/">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </nav>

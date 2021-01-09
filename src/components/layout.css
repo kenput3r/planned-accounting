@@ -3,6 +3,10 @@
   --body-font: "Montserrat", sans-serif;
   --black: #3a3a3a;
   --purple: #551a8b;
+  --blue: #385d75;
+  --light-blue: #b1cce1;
+  --grey: #c3c0be;
+  --off-white: #ddd8d6;
 }
 
 html {
@@ -290,6 +294,7 @@ h3 {
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
+  letter-spacing: 2px;
 }
 h4 {
   margin-left: 0;
@@ -301,7 +306,7 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--title-font);
+  font-family: var(--body-font);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
@@ -598,4 +603,9 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
 }
