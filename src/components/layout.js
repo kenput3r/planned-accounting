@@ -17,17 +17,7 @@ const Layout = ({ children, templateName }) => {
         }}
       >
         <div className="wrapper">
-          Copyright © {new Date().getFullYear()} Johnson &amp; Associates, Built
-          by
-          {` `}
-          <a
-            href="https://github.com/kenput3r"
-            style={{ color: "#ffffff" }}
-            target="_blank"
-            rel="noreferrer"
-          >
-            @kenput3r
-          </a>{" "}
+          Copyright © {new Date().getFullYear()} Johnson &amp; Associates
           <br />
           <a
             href="https://goo.gl/maps/P2Mjq62ZkSw5Ut7n7"
@@ -37,6 +27,17 @@ const Layout = ({ children, templateName }) => {
           >
             3055 Wilshire Blvd - Los Angeles, CA 90010 - USA
           </a>
+          <br />
+          Built by
+          {` `}
+          <a
+            href="https://github.com/kenput3r"
+            style={{ color: "#ffffff" }}
+            target="_blank"
+            rel="noreferrer"
+          >
+            @kenput3r
+          </a>{" "}
         </div>
       </footer>
     </>
