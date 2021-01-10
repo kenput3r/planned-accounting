@@ -25,7 +25,7 @@ const Layout = ({ children, templateName }) => {
             target="_blank"
             rel="noreferrer"
           >
-            3055 Wilshire Blvd - Los Angeles, CA 90010 - USA
+            3055 Wilshire Blvd, Ste 415 - Los Angeles, CA 90010 - USA
           </a>
           <br />
           Built by
